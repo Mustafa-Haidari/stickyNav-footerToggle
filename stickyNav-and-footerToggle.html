@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+      
+  
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Sticky Nav</title>
+</head> 
+<body>
+
+  <header>
+    <h1>Sticky Nav & footer toggle</h1>
+  </header>
+  <nav id="main">
+    <ul>
+      <li class="logo"><a href="#home">doit.</a></li>
+      <li><a href="#todo" data-u="#todo">ToDo</a></li>
+      <li><a href="#budgety" data-u="#budgety">Budgety</a></li>
+      <li><a href="#color-game" data-u="#color-game">color game</a></li>
+      <li><a href="#pig-game" data-u="#pig-game">pig game</a></li>
+      <li><a href="#map" data-u="#map">Maps</a></li>
+    </ul>
+  </nav>
+    
+    <div id="home" class="site-wrap">
+       <h3>Home</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+
+    
+    <div id="todo" class="site-wrap">
+       <h3>ToDo</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+
+    
+    <div id="budgety" class="site-wrap">
+       <h3>Budget Calculator</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+
+    
+    <div id="color-game" class="site-wrap">
+       <h3>Color Game</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+
+    
+    <div id="pig-game" class="site-wrap">
+       <h3>Pig Game</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+
+    
+    <div id="map" class="site-wrap">
+       <h3>Map</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        
+    </div>
+  
+  <footer>
+      <div id="footer-btn">&#129171;</div>
+      
+      <div id="profile">
+      <img src="img.jpg" alt="">
+      <h3>Mustafa Haidari</h3>
+      <p>Hi guys, I am Mustafa and I'll upload my fancy JavaScript codes on this page in the near future. Stay tuned and here is some generic Lorem Ipsum text to make this part look good.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+      
+      </div>
+  </footer>
+
+
+
+<script>
+    
+// Not a ton of code, but hard to
+//    const nav = document.querySelector('#main');
+//    let topOfNav = nav.offsetTop;
+//
+//    function fixNav() {
+//      if (window.scrollY >= topOfNav) {
+//        document.body.style.paddingTop = nav.offsetHeight + 'px';
+//        document.body.classList.add('fixed-nav');
+//      } else {
+//        document.body.classList.remove('fixed-nav');
+//        document.body.style.paddingTop = 0;
+//      }
+//    }
+//
+//    window.addEventListener('scroll', fixNav);
+    
+    const nav = document.querySelector('#main');
+    const topOfNav = nav.offsetTop;
+    const footer = document.querySelector('footer');
+    const x = document.querySelector('#footer-btn');
+    const li = document.querySelectorAll('nav li a');
+    
+    
+    
+    function fixNav(){
+        if(window.scrollY >= topOfNav){
+            document.body.style.paddingTop = nav.offsetHeight +'px';
+            document.body.classList.add('fixed-nav');
+        } else {
+            document.body.style.paddingTop = 0;
+            document.body.classList.remove('fixed-nav');
+        }
+    }
+    
+    
+    
+    function showFooter(){
+        footer.classList.toggle('showFoot');
+        if(footer.classList.contains('showFoot')){
+            x.style.transform = 'rotate(0deg)';
+            x.style.marginTop = '30px';
+            x.style.borderRadius = '5px 5px 0px 0';
+        } else {
+            x.style.marginTop = '10px';
+            x.style.borderRadius = '50%';
+            x.style.transform = 'rotate(180deg)';
+        }
+    }
+    
+    
+    
+    window.addEventListener('scroll', fixNav);
+    x.addEventListener('click', showFooter);
+    
+    
+    
+    for(var i =0; i<li.length; i++){
+        li[i].addEventListener('click', function(){
+            let d = this.getAttribute('data-u');
+            
+            
+            if(footer.classList.contains('showFoot')){
+                document.body.style.paddingTop = '13%';
+                console.log(d)
+            } else if (window.scroll){
+                console.log(d)
+                document.body.style.paddingTop = '75px';
+            }
+        });
+    }
+    
+    
+    
+    
+    
+    
+    
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
